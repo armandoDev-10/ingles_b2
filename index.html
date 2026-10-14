@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglés B2 · Temario Completo Interactivo</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+  :root {
+    --primary: #667eea;
+    --primary-dark: #4c5bd4;
+    --secondary: #764ba2;
+    --accent: #f093fb;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+  }
+
+
+  body {
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    padding: 25px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+
+  .sidebar h1 {
+    font-size: 1.3rem;
+    padding: 0 25px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 15px;
+  }
+
+
+  .sidebar h1 span {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 3px;
+    letter-spacing: 1px;
+  }
+
+
+  .nav-list { list-style: none; padding: 0 12px; }
+  .nav-list li { margin-bottom: 4px; }
+
+
+  .nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.25s;
+  }
+
+
+  .nav-list a:hover,
+  .nav-list a.active {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    transform: translateX(4px);
+  }
+
+
+  .nav-list a .icon { font-size: 1.1rem; flex-shrink: 0; }
+
+
+  /* ===== MAIN ===== */
+  .main { padding: 0; max-width: 100%; overflow-x: hidden; }
+
+
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 60px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -80px; right: 100px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+
+  .hero-content { position: relative; z-index: 1; }
+
+
+  .hero .level {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+  }
+
+
+  .hero h2 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; }
+  .hero p { font-size: 1.05rem; opacity: 0.95; max-width: 700px; }
+
+
+  .hero-stats { display: flex; gap: 25px; margin-top: 25px; flex-wrap: wrap; }
+
+
+  .hero-stat {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 12px;
+    min-width: 130px;
+  }
+
+
+  .hero-stat strong { display: block; font-size: 1.5rem; line-height: 1.2; }
+  .hero-stat span { font-size: 0.8rem; opacity: 0.85; }
+
+
+  /* ===== SECCIONES ===== */
+  .section {
+    padding: 50px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 20px;
+  }
+
+
+  .section:last-child { border-bottom: none; }
+
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary);
+    cursor: pointer;
+    user-select: none;
+    flex-wrap: wrap;
+  }
+
+
+  .section-header .num {
+    background: var(--primary);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+
+  .section-header h3 { font-size: 1.5rem; color: var(--dark); flex: 1; }
+
+
+  .section-header .toggle-icon {
+    font-size: 1.3rem;
+    color: var(--primary);
+    transition: transform 0.3s;
+    font-weight: bold;
+  }
+
+
+  .section.collapsed .section-header .toggle-icon { transform: rotate(-90deg); }
+
+
+  .section-body { transition: max-height 0.4s ease; overflow: hidden; }
+  .section.collapsed .section-body { max-height: 0 !important; }
+
+
+  /* ===== BOTÓN EJERCICIOS ===== */
+  .exercises-btn {
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+
+  .exercises-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(239,68,68,0.45);
+  }
+
+
+  .exercises-btn:active { transform: scale(0.97); }
+
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15,23,42,0.75);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    animation: fadeIn 0.3s;
+  }
+
+
+  .modal-overlay.active { display: flex; }
+
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+  .modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 850px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+    animation: slideUp 0.4s;
+    position: relative;
+  }
+
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+
+  .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+
+  .modal-header h3 {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+  .modal-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .modal-close:hover {
+    background: rgba(255,255,255,0.35);
+    transform: rotate(90deg);
+  }
+
+
+  .modal-body { padding: 30px; }
+
+
+  .modal-intro {
+    background: #eef2ff;
+    border-left: 4px solid var(--primary);
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #334155;
+    font-size: 0.92rem;
+  }
+
+
+  /* ===== SCORE BAR ===== */
+  .score-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 14px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+
+  .score-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+
+  .score-badge {
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+
+  .score-badge.pass { background: var(--success); }
+  .score-badge.fail { background: var(--danger); }
+
+
+  .progress-mini {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 1;
+    min-width: 120px;
+  }
+
+
+  .progress-mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 4px;
+    transition: width 0.4s;
+    width: 0%;
+  }
+
+
+  .reset-btn {
+    background: #fff;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+
+  .reset-btn:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+
+  /* ===== EJERCICIOS ===== */
+  .exercise {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+  }
+
+
+  .exercise.correct {
+    border-color: var(--success);
+    background: #f0fdf4;
+  }
+
+
+  .exercise.incorrect {
+    border-color: var(--danger);
+    background: #fef2f2;
+  }
+
+
+  .exercise .q-num {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+
+  .exercise .q-text {
+    font-size: 0.98rem;
+    color: #1e293b;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.92rem;
+    background: #fff;
+  }
+
+
+  .option:hover {
+    border-color: var(--primary);
+    background: #eef2ff;
+  }
+
+
+  .option input {
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+
+  .option.selected {
+    border-color: var(--primary);
+    background: #eef2ff;
+  }
+
+
+  .option.correct {
+    border-color: var(--success);
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 600;
+  }
+
+
+  .option.incorrect {
+    border-color: var(--danger);
+    background: #fee2e2;
+    color: #991b1b;
+    font-weight: 600;
+  }
+
+
+  .option .letter {
+    font-weight: 700;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+
+  .option.correct .letter { color: var(--success); }
+  .option.incorrect .letter { color: var(--danger); }
+
+
+  .fill-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Consolas', monospace;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+
+  .fill-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+  }
+
+
+  .fill-input.correct {
+    border-color: var(--success);
+    background: #f0fdf4;
+    color: #065f46;
+  }
+
+
+  .fill-input.incorrect {
+    border-color: var(--danger);
+    background: #fef2f2;
+    color: #991b1b;
+  }
+
+
+  .feedback {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    display: none;
+    animation: fadeIn 0.3s;
+  }
+
+
+  .feedback.show { display: block; }
+
+
+  .feedback.correct {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid var(--success);
+  }
+
+
+  .feedback.incorrect {
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid var(--danger);
+  }
+
+
+  .feedback strong { display: block; margin-bottom: 3px; }
+
+
+  /* ===== MODAL ACTIONS ===== */
+  .modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+
+  .action-btn {
+    padding: 12px 26px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+  }
+
+
+  .action-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  }
+
+
+  .action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+  }
+
+
+  .action-btn.secondary {
+    background: #f1f5f9;
+    color: var(--dark);
+  }
+
+
+  .action-btn.secondary:hover {
+    background: #e2e8f0;
+  }
+
+
+  /* ===== RESULTADO FINAL ===== */
+  .final-result {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+    border-radius: 14px;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 0.4s;
+  }
+
+
+  .final-result.show { display: block; }
+
+
+  .final-result .big-score {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+
+
+  .final-result .msg {
+    font-size: 1.05rem;
+    color: #334155;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+
+  .final-result .emoji-big {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+
+  /* ===== INTRO / BLOQUES ===== */
+  .intro {
+    background: #eef2ff;
+    border-left: 4px solid var(--primary);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #334155;
+    font-size: 0.95rem;
+  }
+
+
+  .intro strong { color: var(--primary-dark); }
+
+
+  .block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 25px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: all 0.3s;
+  }
+
+
+  .block:hover {
+    box-shadow: 0 6px 20px rgba(102,126,234,0.1);
+    border-color: #c7d2fe;
+  }
+
+
+  .block h4 {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+
+  .block h4 .chip {
+    background: #eef2ff;
+    color: var(--primary-dark);
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+
+  .block p { color: #475569; margin-bottom: 10px; font-size: 0.95rem; }
+
+
+  .formula {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    margin: 12px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+
+  .formula strong { color: #fbbf24; }
+
+
+  .example {
+    background: #f8fafc;
+    border-left: 3px solid var(--success);
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 8px 0;
+    font-size: 0.92rem;
+    color: #334155;
+  }
+
+
+  .example .en { color: #0f172a; font-weight: 600; display: block; }
+  .example .es { color: var(--gray); font-style: italic; font-size: 0.85rem; }
+
+
+  /* ===== TABLA DE TIEMPOS ===== */
+  .tenses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+
+  .tense-card {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    transition: all 0.3s;
+  }
+
+
+  .tense-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(102,126,234,0.15);
+  }
+
+
+  .tense-card .time {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+
+  .tense-card .name {
+    font-size: 1.05rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+    margin: 5px 0 8px;
+  }
+
+
+  .tense-card .struct {
+    font-family: 'Consolas', monospace;
+    font-size: 0.82rem;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    word-break: break-word;
+  }
+
+
+  .tense-card .ex { font-size: 0.85rem; color: #334155; font-style: italic; }
+
+
+  /* ===== VOCAB ===== */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+
+  .vocab-item {
+    background: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 3px solid var(--secondary);
+    font-size: 0.9rem;
+  }
+
+
+  .vocab-item strong { color: var(--primary-dark); display: block; }
+  .vocab-item span { color: var(--gray); font-size: 0.82rem; }
+
+
+  /* ===== SKILLS ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 15px;
+  }
+
+
+  .skill-card {
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(102,126,234,0.15);
+    border-color: var(--primary);
+  }
+
+
+  .skill-card .emoji { font-size: 2.5rem; margin-bottom: 10px; }
+  .skill-card h5 { color: var(--primary-dark); font-size: 1.05rem; margin-bottom: 8px; }
+  .skill-card p { color: var(--gray); font-size: 0.85rem; }
+
+
+  /* ===== PHRASAL ===== */
+  .phrasal-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+
+  .phrasal {
+    background: #fef3c7;
+    border-left: 3px solid var(--warning);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+
+  .phrasal strong { color: #92400e; }
+  .phrasal em { color: #78350f; font-size: 0.82rem; display: block; }
+
+
+  /* ===== CONDICIONALES ===== */
+  .conditional {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 15px;
+    padding: 14px;
+    border-radius: 10px;
+    background: #f8fafc;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+
+  .conditional .type {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+
+  .conditional .type.zero { background: var(--success); }
+  .conditional .type.first { background: var(--primary); }
+  .conditional .type.second { background: var(--secondary); }
+  .conditional .type.third { background: var(--danger); }
+  .conditional .type.mixed { background: var(--warning); }
+
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+
+
+    .sidebar {
+      position: relative;
+      height: auto;
+      padding: 15px 0;
+    }
+
+
+    .sidebar h1 { font-size: 1.1rem; padding: 0 20px 10px; }
+
+
+    .nav-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 0 10px;
+      gap: 6px;
+    }
+
+
+    .nav-list li { flex-shrink: 0; }
+
+
+    .nav-list a {
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+
+    .nav-list a:hover, .nav-list a.active { transform: none; }
+
+
+    .hero { padding: 35px 25px; }
+    .hero h2 { font-size: 1.7rem; }
+
+
+    .section { padding: 30px 22px; }
+    .section-header h3 { font-size: 1.2rem; }
+    .section-header .num { width: 34px; height: 34px; font-size: 0.85rem; }
+
+
+    .modal-header { padding: 18px 20px; }
+    .modal-header h3 { font-size: 1.05rem; }
+    .modal-body { padding: 20px; }
+
+
+    .score-bar { flex-direction: column; align-items: stretch; }
+    .score-info { justify-content: space-between; }
+  }
+
+
+  @media (max-width: 480px) {
+    .hero h2 { font-size: 1.4rem; }
+    .hero p { font-size: 0.9rem; }
+    .hero-stat { padding: 8px 14px; min-width: 110px; }
+    .hero-stat strong { font-size: 1.2rem; }
+
+
+    .section { padding: 25px 16px; }
+    .section-header { gap: 8px; margin-bottom: 20px; }
+    .section-header h3 { font-size: 1rem; flex-basis: 100%; order: 3; }
+    .section-header .num { width: 30px; height: 30px; font-size: 0.75rem; }
+    .exercises-btn { font-size: 0.75rem; padding: 7px 12px; }
+
+
+    .block { padding: 16px 18px; }
+    .block h4 { font-size: 1rem; }
+
+
+    .conditional { grid-template-columns: 70px 1fr; gap: 10px; padding: 12px; }
+    .conditional .type { font-size: 0.7rem; padding: 8px; }
+
+
+    .formula { font-size: 0.82rem; padding: 12px 14px; white-space: normal; }
+
+
+    .skills-grid, .tenses-grid, .vocab-grid, .phrasal-list {
+      grid-template-columns: 1fr;
+    }
+
+
+    .modal { border-radius: 14px; }
+    .modal-header { border-radius: 14px 14px 0 0; }
+    .modal-actions { flex-direction: column; }
+    .action-btn { width: 100%; }
+  }
+
+
+  /* ===== BOTONES FLOTANTES ===== */
+  .back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    z-index: 100;
+  }
+
+
+  .back-top.visible { opacity: 1; pointer-events: auto; }
+  .back-top:hover { transform: translateY(-5px) scale(1.1); }
+
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    width: 0%;
+    z-index: 200;
+    transition: width 0.1s;
+  }
+</style>
+</head>
+<body>
+
+
+<div class="progress-bar" id="progressBar"></div>
+
+
+<div class="layout">
+
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <h1>🇬🇧 Inglés B2 <span>TEMARIO COMPLETO</span></h1>
+    <ul class="nav-list">
+      <li><a href="#tiempos"><span class="icon">⏰</span> 12 Tiempos Verbales</a></li>
+      <li><a href="#condicionales"><span class="icon">🔀</span> Condicionales</a></li>
+      <li><a href="#pasiva"><span class="icon">🔄</span> Voz Pasiva</a></li>
+      <li><a href="#modales"><span class="icon">💪</span> Verbos Modales</a></li>
+      <li><a href="#conectores"><span class="icon">🔗</span> Conectores Avanzados</a></li>
+      <li><a href="#colocaciones"><span class="icon">🎯</span> Colocaciones</a></li>
+      <li><a href="#sinonimos"><span class="icon">💎</span> Sinónimos Precisos</a></li>
+      <li><a href="#phrasal"><span class="icon">🚀</span> Phrasal Verbs</a></li>
+      <li><a href="#temas"><span class="icon">🌍</span> Temáticas Variadas</a></li>
+      <li><a href="#destrezas"><span class="icon">🎓</span> Las 4 Destrezas</a></li>
+    </ul>
+  </aside>
+
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+
+    <div class="hero">
+      <div class="hero-content">
+        <span class="level">NIVEL B2 · INTERMEDIO ALTO</span>
+        <h2>Domina el Inglés B2</h2>
+        <p>Un temario completo y estructurado para alcanzar el nivel B2 según el MCER: gramática avanzada, vocabulario preciso y las cuatro destrezas comunicativas.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>12</strong><span>Tiempos verbales</span></div>
+          <div class="hero-stat"><strong>50+</strong><span>Phrasal verbs</span></div>
+          <div class="hero-stat"><strong>4</strong><span>Destrezas</span></div>
+          <div class="hero-stat"><strong>B2</strong><span>MCER</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===== 1. TIEMPOS VERBALES ===== -->
+    <section class="section" id="tiempos">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">1</div>
+        <h3 onclick="toggleSection(this)">⏰ Los 12 Tiempos Verbales</h3>
+        <button class="exercises-btn" onclick="openModal('tiempos')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          En inglés existen <strong>12 tiempos verbales</strong> que combinan 3 tiempos (presente, pasado, futuro) con 4 aspectos (simple, continuo, perfecto, perfecto continuo).
+        </div>
+
+
+        <div class="block">
+          <h4>🟢 PRESENTE <span class="chip">4 tiempos</span></h4>
+          <div class="tenses-grid">
+            <div class="tense-card"><div class="time">Presente</div><div class="name">Simple</div><div class="struct">S + V (+s/es 3ª p.)</div><div class="ex">She <strong>works</strong> every day.</div></div>
+            <div class="tense-card"><div class="time">Presente</div><div class="name">Continuo</div><div class="struct">S + am/is/are + V-ing</div><div class="ex">She <strong>is working</strong> now.</div></div>
+            <div class="tense-card"><div class="time">Presente</div><div class="name">Perfecto</div><div class="struct">S + have/has + V-pp</div><div class="ex">She <strong>has worked</strong> here.</div></div>
+            <div class="tense-card"><div class="time">Presente</div><div class="name">Perfecto Continuo</div><div class="struct">S + have/has been + V-ing</div><div class="ex">She <strong>has been working</strong> all day.</div></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>🔵 PASADO <span class="chip">4 tiempos</span></h4>
+          <div class="tenses-grid">
+            <div class="tense-card"><div class="time">Pasado</div><div class="name">Simple</div><div class="struct">S + V-ed / irregular</div><div class="ex">She <strong>worked</strong> yesterday.</div></div>
+            <div class="tense-card"><div class="time">Pasado</div><div class="name">Continuo</div><div class="struct">S + was/were + V-ing</div><div class="ex">She <strong>was working</strong> at 8pm.</div></div>
+            <div class="tense-card"><div class="time">Pasado</div><div class="name">Perfecto</div><div class="struct">S + had + V-pp</div><div class="ex">She <strong>had worked</strong> before.</div></div>
+            <div class="tense-card"><div class="time">Pasado</div><div class="name">Perfecto Continuo</div><div class="struct">S + had been + V-ing</div><div class="ex">She <strong>had been working</strong> for hours.</div></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>🟣 FUTURO <span class="chip">4 tiempos</span></h4>
+          <div class="tenses-grid">
+            <div class="tense-card"><div class="time">Futuro</div><div class="name">Simple</div><div class="struct">S + will + V</div><div class="ex">She <strong>will work</strong> tomorrow.</div></div>
+            <div class="tense-card"><div class="time">Futuro</div><div class="name">Continuo</div><div class="struct">S + will be + V-ing</div><div class="ex">She <strong>will be working</strong> at 8pm.</div></div>
+            <div class="tense-card"><div class="time">Futuro</div><div class="name">Perfecto</div><div class="struct">S + will have + V-pp</div><div class="ex">She <strong>will have worked</strong> by then.</div></div>
+            <div class="tense-card"><div class="time">Futuro</div><div class="name">Perfecto Continuo</div><div class="struct">S + will have been + V-ing</div><div class="ex">She <strong>will have been working</strong> for 3 hours.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 2. CONDICIONALES ===== -->
+    <section class="section" id="condicionales">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">2</div>
+        <h3 onclick="toggleSection(this)">🔀 Estructuras Condicionales</h3>
+        <button class="exercises-btn" onclick="openModal('condicionales')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          Los condicionales expresan situaciones hipotéticas y sus consecuencias. Hay <strong>5 tipos principales</strong> en nivel B2.
+        </div>
+
+
+        <div class="conditional">
+          <div class="type zero">ZERO</div>
+          <div>
+            <div class="formula">If + <strong>present simple</strong>, <strong>present simple</strong></div>
+            <div class="example"><span class="en">If you heat water to 100°C, it boils.</span><span class="es">Verdades universales.</span></div>
+          </div>
+        </div>
+        <div class="conditional">
+          <div class="type first">FIRST</div>
+          <div>
+            <div class="formula">If + <strong>present simple</strong>, <strong>will + V</strong></div>
+            <div class="example"><span class="en">If it rains tomorrow, we will stay home.</span><span class="es">Posibilidad real.</span></div>
+          </div>
+        </div>
+        <div class="conditional">
+          <div class="type second">SECOND</div>
+          <div>
+            <div class="formula">If + <strong>past simple</strong>, <strong>would + V</strong></div>
+            <div class="example"><span class="en">If I won the lottery, I would travel the world.</span><span class="es">Hipotético.</span></div>
+          </div>
+        </div>
+        <div class="conditional">
+          <div class="type third">THIRD</div>
+          <div>
+            <div class="formula">If + <strong>had + V-pp</strong>, <strong>would have + V-pp</strong></div>
+            <div class="example"><span class="en">If I had studied, I would have passed.</span><span class="es">Pasado irreal.</span></div>
+          </div>
+        </div>
+        <div class="conditional">
+          <div class="type mixed">MIXED</div>
+          <div>
+            <div class="formula">If + <strong>had + V-pp</strong>, <strong>would + V</strong></div>
+            <div class="example"><span class="en">If I had studied medicine, I would be a doctor now.</span><span class="es">Pasado → presente.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 3. VOZ PASIVA ===== -->
+    <section class="section" id="pasiva">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">3</div>
+        <h3 onclick="toggleSection(this)">🔄 Voz Pasiva</h3>
+        <button class="exercises-btn" onclick="openModal('pasiva')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          La voz pasiva se usa cuando el <strong>objeto</strong> de la acción es más importante que quien la realiza.
+        </div>
+
+
+        <div class="block">
+          <h4>📐 Fórmula general</h4>
+          <div class="formula">Objeto + <strong>be (conjugado)</strong> + <strong>V-participio</strong> + (by + agente)</div>
+        </div>
+
+
+        <div class="block">
+          <h4>🎯 Pasiva en los principales tiempos</h4>
+          <div class="example"><span class="en"><strong>Present Simple:</strong> The letter <strong>is written</strong> by John.</span><span class="es">La carta es escrita por John.</span></div>
+          <div class="example"><span class="en"><strong>Past Simple:</strong> The house <strong>was built</strong> in 1990.</span><span class="es">La casa fue construida en 1990.</span></div>
+          <div class="example"><span class="en"><strong>Present Perfect:</strong> The work <strong>has been done</strong>.</span><span class="es">El trabajo ha sido hecho.</span></div>
+          <div class="example"><span class="en"><strong>Future:</strong> The project <strong>will be finished</strong> tomorrow.</span><span class="es">El proyecto será terminado mañana.</span></div>
+          <div class="example"><span class="en"><strong>Modal:</strong> It <strong>must be done</strong> today.</span><span class="es">Debe ser hecho hoy.</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 4. MODALES ===== -->
+    <section class="section" id="modales">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">4</div>
+        <h3 onclick="toggleSection(this)">💪 Verbos Modales</h3>
+        <button class="exercises-btn" onclick="openModal('modales')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          Los modales expresan <strong>habilidad, posibilidad, obligación, permiso o consejo</strong>.
+        </div>
+
+
+        <div class="block">
+          <h4>📋 Tabla de modales</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>CAN / COULD</strong><span>Habilidad</span></div>
+            <div class="vocab-item"><strong>MAY / MIGHT</strong><span>Posibilidad</span></div>
+            <div class="vocab-item"><strong>MUST</strong><span>Obligación fuerte</span></div>
+            <div class="vocab-item"><strong>SHOULD</strong><span>Consejo</span></div>
+            <div class="vocab-item"><strong>WILL / WOULD</strong><span>Futuro / cortesía</span></div>
+            <div class="vocab-item"><strong>OUGHT TO</strong><span>Deber moral</span></div>
+            <div class="vocab-item"><strong>HAVE TO</strong><span>Obligación externa</span></div>
+            <div class="vocab-item"><strong>BE ABLE TO</strong><span>Habilidad específica</span></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>⚠️ Diferencias clave B2</h4>
+          <div class="example"><span class="en"><strong>must</strong> vs <strong>have to</strong></span><span class="es">Must = obligación interna. Have to = obligación externa.</span></div>
+          <div class="example"><span class="en"><strong>mustn't</strong> vs <strong>don't have to</strong></span><span class="es">Mustn't = prohibido. Don't have to = no es necesario.</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 5. CONECTORES ===== -->
+    <section class="section" id="conectores">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">5</div>
+        <h3 onclick="toggleSection(this)">🔗 Conectores Avanzados</h3>
+        <button class="exercises-btn" onclick="openModal('conectores')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          Los conectores dan <strong>cohesión y fluidez</strong> al discurso.
+        </div>
+
+
+        <div class="block">
+          <h4>➕ Añadir información</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>Moreover / Furthermore</strong><span>Además (formal)</span></div>
+            <div class="vocab-item"><strong>In addition</strong><span>Además</span></div>
+            <div class="vocab-item"><strong>Besides</strong><span>Aparte de eso</span></div>
+            <div class="vocab-item"><strong>What's more</strong><span>Es más</span></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>⚖️ Contrastar</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>However</strong><span>Sin embargo</span></div>
+            <div class="vocab-item"><strong>Nevertheless</strong><span>No obstante</span></div>
+            <div class="vocab-item"><strong>On the other hand</strong><span>Por otro lado</span></div>
+            <div class="vocab-item"><strong>Whereas</strong><span>Mientras que</span></div>
+            <div class="vocab-item"><strong>Although / Though</strong><span>Aunque</span></div>
+            <div class="vocab-item"><strong>Despite / In spite of</strong><span>A pesar de</span></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>🎯 Causa y consecuencia</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>Therefore</strong><span>Por lo tanto</span></div>
+            <div class="vocab-item"><strong>Thus</strong><span>Así pues</span></div>
+            <div class="vocab-item"><strong>Consequently</strong><span>En consecuencia</span></div>
+            <div class="vocab-item"><strong>As a result</strong><span>Como resultado</span></div>
+            <div class="vocab-item"><strong>Due to / Owing to</strong><span>Debido a</span></div>
+            <div class="vocab-item"><strong>Since / As</strong><span>Ya que</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 6. COLOCACIONES ===== -->
+    <section class="section" id="colocaciones">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">6</div>
+        <h3 onclick="toggleSection(this)">🎯 Colocaciones</h3>
+        <button class="exercises-btn" onclick="openModal('colocaciones')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          Las <strong>collocations</strong> son combinaciones naturales de palabras.
+        </div>
+
+
+        <div class="block">
+          <h4>🔧 Verbo + sustantivo</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>make a decision</strong><span>tomar una decisión</span></div>
+            <div class="vocab-item"><strong>take a break</strong><span>tomar un descanso</span></div>
+            <div class="vocab-item"><strong>do homework</strong><span>hacer la tarea</span></div>
+            <div class="vocab-item"><strong>pay attention</strong><span>prestar atención</span></div>
+            <div class="vocab-item"><strong>keep a promise</strong><span>cumplir una promesa</span></div>
+            <div class="vocab-item"><strong>break the rules</strong><span>romper las reglas</span></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>🎨 Adjetivo + sustantivo</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>heavy rain</strong><span>lluvia intensa</span></div>
+            <div class="vocab-item"><strong>strong coffee</strong><span>café fuerte</span></div>
+            <div class="vocab-item"><strong>deep sleep</strong><span>sueño profundo</span></div>
+            <div class="vocab-item"><strong>close friend</strong><span>amigo íntimo</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 7. SINÓNIMOS ===== -->
+    <section class="section" id="sinonimos">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">7</div>
+        <h3 onclick="toggleSection(this)">💎 Sinónimos Precisos</h3>
+        <button class="exercises-btn" onclick="openModal('sinonimos')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          En B2 se espera <strong>variar el vocabulario</strong> evitando repetir palabras básicas.
+        </div>
+
+
+        <div class="block">
+          <h4>✨ En vez de "good"</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>excellent</strong><span>excelente</span></div>
+            <div class="vocab-item"><strong>outstanding</strong><span>sobresaliente</span></div>
+            <div class="vocab-item"><strong>remarkable</strong><span>notable</span></div>
+            <div class="vocab-item"><strong>superb</strong><span>magnífico</span></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>🗣️ En vez de "say"</h4>
+          <div class="vocab-grid">
+            <div class="vocab-item"><strong>claim</strong><span>afirmar</span></div>
+            <div class="vocab-item"><strong>state</strong><span>declarar</span></div>
+            <div class="vocab-item"><strong>mention</strong><span>mencionar</span></div>
+            <div class="vocab-item"><strong>point out</strong><span>señalar</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 8. PHRASAL VERBS ===== -->
+    <section class="section" id="phrasal">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">8</div>
+        <h3 onclick="toggleSection(this)">🚀 Phrasal Verbs</h3>
+        <button class="exercises-btn" onclick="openModal('phrasal')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          Los <strong>phrasal verbs</strong> son verbos + preposición/adverbio que cambian de significado.
+        </div>
+
+
+        <div class="block">
+          <h4>🏠 Vida diaria</h4>
+          <div class="phrasal-list">
+            <div class="phrasal"><strong>get up</strong><em>levantarse</em></div>
+            <div class="phrasal"><strong>wake up</strong><em>despertarse</em></div>
+            <div class="phrasal"><strong>put on</strong><em>ponerse (ropa)</em></div>
+            <div class="phrasal"><strong>take off</strong><em>quitarse / despegar</em></div>
+            <div class="phrasal"><strong>turn on / off</strong><em>encender / apagar</em></div>
+            <div class="phrasal"><strong>pick up</strong><em>recoger</em></div>
+            <div class="phrasal"><strong>find out</strong><em>descubrir</em></div>
+            <div class="phrasal"><strong>give up</strong><em>rendirse</em></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>💼 Trabajo y estudio</h4>
+          <div class="phrasal-list">
+            <div class="phrasal"><strong>carry out</strong><em>llevar a cabo</em></div>
+            <div class="phrasal"><strong>deal with</strong><em>lidiar con</em></div>
+            <div class="phrasal"><strong>hand in</strong><em>entregar</em></div>
+            <div class="phrasal"><strong>work out</strong><em>resolver</em></div>
+            <div class="phrasal"><strong>catch up</strong><em>ponerse al día</em></div>
+          </div>
+        </div>
+
+
+        <div class="block">
+          <h4>❤️ Relaciones</h4>
+          <div class="phrasal-list">
+            <div class="phrasal"><strong>get along</strong><em>llevarse bien</em></div>
+            <div class="phrasal"><strong>break up</strong><em>romper (pareja)</em></div>
+            <div class="phrasal"><strong>make up</strong><em>reconciliarse</em></div>
+            <div class="phrasal"><strong>look after</strong><em>cuidar</em></div>
+            <div class="phrasal"><strong>put up with</strong><em>soportar</em></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 9. TEMÁTICAS ===== -->
+    <section class="section" id="temas">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">9</div>
+        <h3 onclick="toggleSection(this)">🌍 Temáticas Variadas</h3>
+        <button class="exercises-btn" onclick="openModal('temas')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          En B2 se abordan <strong>temas variados</strong> que amplían el vocabulario.
+        </div>
+
+
+        <div class="skills-grid">
+          <div class="skill-card"><div class="emoji">🌱</div><h5>Medio ambiente</h5><p>Cambio climático, reciclaje, energías renovables.</p></div>
+          <div class="skill-card"><div class="emoji">💻</div><h5>Tecnología</h5><p>Redes sociales, IA, privacidad.</p></div>
+          <div class="skill-card"><div class="emoji">🏥</div><h5>Salud</h5><p>Nutrición, ejercicio, salud mental.</p></div>
+          <div class="skill-card"><div class="emoji">🎓</div><h5>Educación</h5><p>Sistema educativo, aprendizaje online.</p></div>
+          <div class="skill-card"><div class="emoji">💼</div><h5>Trabajo</h5><p>Empleo, entrevistas, trabajo remoto.</p></div>
+          <div class="skill-card"><div class="emoji">🎭</div><h5>Cultura</h5><p>Cine, música, deportes, viajes.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 10. DESTREZAS ===== -->
+    <section class="section" id="destrezas">
+      <div class="section-header">
+        <div class="num" onclick="toggleSection(this)">10</div>
+        <h3 onclick="toggleSection(this)">🎓 Las 4 Destrezas</h3>
+        <button class="exercises-btn" onclick="openModal('destrezas')">📝 Ejercicios</button>
+        <span class="toggle-icon" onclick="toggleSection(this)">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="intro">
+          El MCER evalúa el dominio a través de <strong>4 destrezas</strong>.
+        </div>
+
+
+        <div class="skills-grid">
+          <div class="skill-card"><div class="emoji">📖</div><h5>Comprensión Lectora</h5><p><strong>Reading</strong><br>Artículos, noticias, textos literarios.</p></div>
+          <div class="skill-card"><div class="emoji">🎧</div><h5>Comprensión Auditiva</h5><p><strong>Listening</strong><br>Podcasts, series, conversaciones.</p></div>
+          <div class="skill-card"><div class="emoji">✍️</div><h5>Expresión Escrita</h5><p><strong>Writing</strong><br>Ensayos, emails, informes.</p></div>
+          <div class="skill-card"><div class="emoji">🗣️</div><h5>Expresión Oral</h5><p><strong>Speaking</strong><br>Debates, presentaciones, role-plays.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #fff; text-align: center; padding: 40px 25px;">
+      <p style="font-size: 1.1rem; margin-bottom: 10px;">🎯 <strong>Inglés B2 · Temario Completo</strong></p>
+      <p style="opacity: 0.85; font-size: 0.9rem;">Basado en el Marco Común Europeo de Referencia (MCER)</p>
+    </footer>
+
+
+  </main>
+</div>
+
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target === this) closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">📝 Ejercicios</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Contenido dinámico -->
+    </div>
+  </div>
+</div>
+
+
+<button class="back-top" id="backTop" title="Volver arriba">↑</button>
+
+
+<script>
+/* =====================================================
+   BANCO DE EJERCICIOS POR SECCIÓN
+   Cada sección tiene:
+   - intro: texto explicativo
+   - exercises: array de ejercicios
+     · type: "mc" (multiple choice) | "fill" (rellenar)
+     · q: pregunta
+     · options: [opciones] (solo mc)
+     · answer: respuesta correcta (índice para mc, string para fill)
+     · explanation: explicación de la respuesta
+   ===================================================== */
+const EXERCISES_DB = {
+  tiempos: {
+    title: "⏰ Ejercicios · Los 12 Tiempos Verbales",
+    intro: "Pon a prueba tu dominio de los 12 tiempos verbales. Elige la opción correcta o escribe la forma adecuada.",
+    exercises: [
+      { type: "mc", q: "She ____ in London since 2018.", options: ["lives", "is living", "has lived", "lived"], answer: 2, explanation: "Present Perfect (has lived) porque indica una acción que comenzó en el pasado y continúa." },
+      { type: "mc", q: "While I ____ TV, the phone rang.", options: ["watched", "was watching", "have watched", "watch"], answer: 1, explanation: "Past Continuous (was watching) para una acción en progreso interrumpida por otra." },
+      { type: "mc", q: "By next year, they ____ the project.", options: ["will finish", "will have finished", "finish", "have finished"], answer: 1, explanation: "Future Perfect (will have finished): acción completada antes de un momento futuro." },
+      { type: "fill", q: "I ____ (study) English for three years.", answer: ["have studied", "have been studying"], explanation: "Present Perfect / Perfect Continuous para acciones que empezaron en el pasado y continúan." },
+      { type: "fill", q: "He ____ (work) when I called him.", answer: ["was working"], explanation: "Past Continuous: acción en progreso en un momento pasado." },
+      { type: "mc", q: "Look! The children ____ in the garden.", options: ["play", "are playing", "played", "have played"], answer: 1, explanation: "Present Continuous para acciones que ocurren ahora mismo." },
+      { type: "fill", q: "She ____ (already / finish) her homework.", answer: ["has already finished"], explanation: "Present Perfect con 'already' para acciones recientes con relevancia en el presente." },
+      { type: "mc", q: "I ____ to Paris three times.", options: ["went", "have been", "was going", "am going"], answer: 1, explanation: "Present Perfect con 'have been' expresa experiencias de vida (sin tiempo específico)." }
+    ]
+  },
+  condicionales: {
+    title: "🔀 Ejercicios · Condicionales",
+    intro: "Completa los condicionales correctamente según su tipo (zero, first, second, third, mixed).",
+    exercises: [
+      { type: "mc", q: "If you ____ ice, it melts.", options: ["heat", "will heat", "heated", "would heat"], answer: 0, explanation: "Zero Conditional: verdad universal → if + present simple, present simple." },
+      { type: "mc", q: "If it ____ tomorrow, we'll cancel the trip.", options: ["rains", "will rain", "rained", "would rain"], answer: 0, explanation: "First Conditional: if + present simple, will + V. No se usa 'will' en la cláusula 'if'." },
+      { type: "mc", q: "If I ____ rich, I would buy a yacht.", options: ["am", "was", "were", "will be"], answer: 2, explanation: "Second Conditional: if + past simple (were para todas las personas en estilo formal)." },
+      { type: "mc", q: "If she ____ harder, she would have passed.", options: ["studied", "had studied", "studies", "would study"], answer: 1, explanation: "Third Conditional: if + had + V-pp, would have + V-pp." },
+      { type: "fill", q: "If I ____ (be) you, I would apologize.", answer: ["were", "was"], explanation: "Second Conditional: 'If I were you' es la fórmula clásica de consejo." },
+      { type: "fill", q: "If they ____ (leave) earlier, they wouldn't have missed the train.", answer: ["had left"], explanation: "Third Conditional: if + had + V-pp para hipótesis del pasado." },
+      { type: "mc", q: "If I had studied medicine, I ____ a doctor now.", options: ["would be", "would have been", "am", "will be"], answer: 0, explanation: "Mixed Conditional: pasado hipotético → presente real → would + V." },
+      { type: "mc", q: "I ____ you if I had known you were in town.", options: ["would call", "would have called", "called", "will call"], answer: 1, explanation: "Third Conditional: would have + V-pp para acciones no realizadas en el pasado." }
+    ]
+  },
+  pasiva: {
+    title: "🔄 Ejercicios · Voz Pasiva",
+    intro: "Transforma o completa las oraciones en voz pasiva.",
+    exercises: [
+      { type: "mc", q: "The Mona Lisa ____ by Leonardo da Vinci.", options: ["painted", "was painted", "is painting", "has painted"], answer: 1, explanation: "Past Simple pasiva: was/were + V-pp." },
+      { type: "mc", q: "English ____ all over the world.", options: ["speaks", "is spoken", "is speaking", "spoken"], answer: 1, explanation: "Present Simple pasiva: am/is/are + V-pp." },
+      { type: "mc", q: "The report ____ by tomorrow.", options: ["will finish", "will be finished", "is finished", "finishes"], answer: 1, explanation: "Future pasiva: will be + V-pp." },
+      { type: "fill", q: "The letter ____ (write) yesterday.", answer: ["was written"], explanation: "Past Simple pasiva de 'write': was written." },
+      { type: "fill", q: "This song ____ (play) many times on the radio.", answer: ["has been played"], explanation: "Present Perfect pasiva: has/have been + V-pp." },
+      { type: "mc", q: "The car ____ last week.", options: ["stole", "was stolen", "is stealing", "has stolen"], answer: 1, explanation: "Past Simple pasiva de 'steal': was stolen." },
+      { type: "mc", q: "All the tickets ____ before we arrived.", options: ["sold", "had been sold", "were selling", "have sold"], answer: 1, explanation: "Past Perfect pasiva: had been + V-pp." },
+      { type: "fill", q: "The problem must ____ (solve) today.", answer: ["be solved"], explanation: "Modal + be + V-pp para pasiva con modales." }
+    ]
+  },
+  modales: {
+    title: "💪 Ejercicios · Verbos Modales",
+    intro: "Elige el modal correcto según el contexto (habilidad, obligación, posibilidad, consejo).",
+    exercises: [
+      { type: "mc", q: "You ____ smoke here. It's forbidden.", options: ["mustn't", "don't have to", "shouldn't", "needn't"], answer: 0, explanation: "'Mustn't' = prohibición. 'Don't have to' = no es necesario." },
+      { type: "mc", q: "I ____ swim when I was five.", options: ["can", "could", "may", "must"], answer: 1, explanation: "'Could' es el pasado de 'can' para habilidad pasada." },
+      { type: "mc", q: "It ____ rain later, take an umbrella.", options: ["must", "should", "might", "can"], answer: 2, explanation: "'Might' expresa posibilidad futura incierta." },
+      { type: "mc", q: "You ____ see a doctor. You look terrible.", options: ["should", "can", "mustn't", "might"], answer: 0, explanation: "'Should' da consejo o recomendación." },
+      { type: "fill", q: "I ____ (have to) leave early yesterday.", answer: ["had to"], explanation: "'Have to' en pasado es 'had to'." },
+      { type: "mc", q: "____ you pass me the salt, please?", options: ["Must", "Should", "Could", "May"], answer: 2, explanation: "'Could' para peticiones corteses." },
+      { type: "mc", q: "She ____ be at home. Her car is outside.", options: ["must", "can", "might", "should"], answer: 0, explanation: "'Must' para deducciones lógicas altas." },
+      { type: "mc", q: "We ____ hurry. We have plenty of time.", options: ["mustn't", "don't have to", "can't", "shouldn't"], answer: 1, explanation: "'Don't have to' = no es necesario (ausencia de obligación)." }
+    ]
+  },
+  conectores: {
+    title: "🔗 Ejercicios · Conectores Avanzados",
+    intro: "Selecciona el conector adecuado según la relación lógica entre las ideas.",
+    exercises: [
+      { type: "mc", q: "It was raining; ____, we decided to go out.", options: ["Moreover", "However", "Therefore", "Furthermore"], answer: 1, explanation: "'However' contrasta: llovía, sin embargo salimos." },
+      { type: "mc", q: "He studied hard; ____, he passed the exam.", options: ["however", "nevertheless", "therefore", "whereas"], answer: 2, explanation: "'Therefore' indica consecuencia." },
+      { type: "mc", q: "____ the heavy traffic, we arrived on time.", options: ["Despite", "Although", "Because", "However"], answer: 0, explanation: "'Despite' + sustantivo. 'Although' + cláusula completa." },
+      { type: "mc", q: "She speaks English, ____ her brother speaks French.", options: ["because", "whereas", "so", "moreover"], answer: 1, explanation: "'Whereas' contrasta dos ideas paralelas." },
+      { type: "fill", q: "I was tired; ____, I finished the report. (sin embargo)", answer: ["however", "nevertheless"], explanation: "Conectores adversativos formales." },
+      { type: "mc", q: "____, we should consider the environmental impact.", options: ["Furthermore", "Thus", "On the contrary", "For instance"], answer: 0, explanation: "'Furthermore' añade un argumento adicional." },
+      { type: "mc", q: "The company failed ____ poor management.", options: ["due to", "although", "however", "whereas"], answer: 0, explanation: "'Due to' + sustantivo indica causa." },
+      { type: "fill", q: "____, I'd like to thank everyone. (para concluir)", answer: ["in conclusion", "to sum up"], explanation: "Conectores de cierre del discurso." }
+    ]
+  },
+  colocaciones: {
+    title: "🎯 Ejercicios · Colocaciones",
+    intro: "Elige la colocación natural correcta en inglés.",
+    exercises: [
+      { type: "mc", q: "I need to ____ a decision about my future.", options: ["do", "make", "take", "have"], answer: 1, explanation: "'Make a decision' es la colocación correcta." },
+      { type: "mc", q: "Let's ____ a break for 10 minutes.", options: ["do", "make", "take", "have"], answer: 2, explanation: "'Take a break' es la colocación estándar." },
+      { type: "mc", q: "You should ____ attention in class.", options: ["pay", "give", "make", "do"], answer: 0, explanation: "'Pay attention' es la colocación correcta." },
+      { type: "mc", q: "It was ____ rain, so we stayed inside.", options: ["strong", "heavy", "big", "hard"], answer: 1, explanation: "'Heavy rain' es la colocación natural." },
+      { type: "fill", q: "He never ____ his promises. (cumplir)", answer: ["keeps", "kept"], explanation: "'Keep a promise' = cumplir una promesa." },
+      { type: "mc", q: "She's a ____ friend of mine.", options: ["close", "near", "tight", "strong"], answer: 0, explanation: "'Close friend' = amigo íntimo." },
+      { type: "mc", q: "I ____ strongly recommend this book.", options: ["very", "highly", "much", "deeply"], answer: 1, explanation: "'Highly recommend' es la colocación formal." },
+      { type: "fill", q: "We must ____ the rules. (romper)", answer: ["break"], explanation: "'Break the rules' = romper las reglas." }
+    ]
+  },
+  sinonimos: {
+    title: "💎 Ejercicios · Sinónimos Precisos",
+    intro: "Elige el sinónimo más apropiado para enriquecer tu vocabulario.",
+    exercises: [
+      { type: "mc", q: "En vez de 'good', un sinónimo más preciso es:", options: ["nice", "outstanding", "fine", "okay"], answer: 1, explanation: "'Outstanding' = sobresaliente, más preciso y formal." },
+      { type: "mc", q: "En vez de 'bad', podrías decir:", options: ["not good", "awful", "meh", "so-so"], answer: 1, explanation: "'Awful' = horrible, más expresivo." },
+      { type: "mc", q: "En vez de 'big', un sinónimo más preciso es:", options: ["large", "enormous", "tall", "wide"], answer: 1, explanation: "'Enormous' = enorme, más intenso que 'big'." },
+      { type: "mc", q: "En vez de 'say', podrías usar:", options: ["tell", "claim", "speak", "talk"], answer: 1, explanation: "'Claim' = afirmar, más preciso en contextos formales." },
+      { type: "fill", q: "En vez de 'very good', usa '____'.", answer: ["excellent", "outstanding", "superb"], explanation: "Sinónimos intensificadores de 'good'." },
+      { type: "mc", q: "En vez de 'small', un sinónimo más preciso es:", options: ["tiny", "short", "thin", "low"], answer: 0, explanation: "'Tiny' = diminuto, más expresivo." },
+      { type: "mc", q: "En vez de 'a lot of', podrías usar:", options: ["many", "numerous", "several", "few"], answer: 1, explanation: "'Numerous' = numerosos, formal." },
+      { type: "fill", q: "En vez de 'happy', usa '____'.", answer: ["delighted", "thrilled", "ecstatic"], explanation: "Sinónimos más intensos de 'happy'." }
+    ]
+  },
+  phrasal: {
+    title: "🚀 Ejercicios · Phrasal Verbs",
+    intro: "Completa o elige el phrasal verb correcto según el contexto.",
+    exercises: [
+      { type: "mc", q: "I usually ____ at 7 am on weekdays.", options: ["get up", "wake up", "stand up", "sit up"], answer: 0, explanation: "'Get up' = levantarse de la cama." },
+      { type: "mc", q: "Please ____ your shoes before entering.", options: ["take off", "put on", "turn off", "get off"], answer: 0, explanation: "'Take off' = quitarse (ropa/calzado)." },
+      { type: "mc", q: "I need to ____ the meaning of this word.", options: ["find out", "look for", "give up", "put on"], answer: 0, explanation: "'Find out' = descubrir, averiguar." },
+      { type: "mc", q: "They ____ after 5 years of marriage.", options: ["broke up", "made up", "got along", "put up"], answer: 0, explanation: "'Break up' = terminar una relación." },
+      { type: "fill", q: "Don't ____! Keep trying. (rendirse)", answer: ["give up"], explanation: "'Give up' = rendirse." },
+      { type: "mc", q: "I ____ my little sister when my parents travel.", options: ["look after", "look for", "look up", "look out"], answer: 0, explanation: "'Look after' = cuidar." },
+      { type: "mc", q: "We need to ____ a solution to this problem.", options: ["come up with", "put up with", "get along with", "catch up with"], answer: 0, explanation: "'Come up with' = idear, proponer." },
+      { type: "fill", q: "I can't ____ his behavior anymore. (soportar)", answer: ["put up with"], explanation: "'Put up with' = soportar." }
+    ]
+  },
+  temas: {
+    title: "🌍 Ejercicios · Temáticas Variadas",
+    intro: "Vocabulario específico de temas típicos del nivel B2.",
+    exercises: [
+      { type: "mc", q: "____ gases are the main cause of global warming.", options: ["Greenhouse", "Green home", "Greenery", "Greenish"], answer: 0, explanation: "'Greenhouse gases' = gases de efecto invernadero." },
+      { type: "mc", q: "Renewable ____ like solar and wind are growing.", options: ["energies", "powers", "forces", "fuels"], answer: 0, explanation: "'Renewable energies' = energías renovables." },
+      { type: "mc", q: "She suffers from ____, especially in winter.", options: ["stress", "pressure", "tension", "force"], answer: 0, explanation: "'Stress' = estrés, el término más común para salud mental." },
+      { type: "mc", q: "He works ____ from home three days a week.", options: ["remotely", "far", "distant", "away"], answer: 0, explanation: "'Work remotely' = trabajar en remoto." },
+      { type: "fill", q: "We must reduce our carbon ____. (huella)", answer: ["footprint"], explanation: "'Carbon footprint' = huella de carbono." },
+      { type: "mc", q: "____ media has changed how we communicate.", options: ["Social", "Sociable", "Socialist", "Society"], answer: 0, explanation: "'Social media' = redes sociales." },
+      { type: "mc", q: "Cycling is good for your physical and mental ____.", options: ["health", "wealth", "strength", "fitness"], answer: 0, explanation: "'Mental health' = salud mental." },
+      { type: "fill", q: "____ change is one of the biggest challenges today.", answer: ["climate", "Climate"], explanation: "'Climate change' = cambio climático." }
+    ]
+  },
+  destrezas: {
+    title: "🎓 Ejercicios · Las 4 Destrezas",
+    intro: "Preguntas sobre estrategias y vocabulario de Reading, Listening, Writing y Speaking.",
+    exercises: [
+      { type: "mc", q: "Leer rápidamente para captar la idea general se llama:", options: ["scanning", "skimming", "skipping", "screening"], answer: 1, explanation: "'Skimming' = lectura rápida para idea general. 'Scanning' = buscar información específica." },
+      { type: "mc", q: "Buscar un dato concreto en un texto se llama:", options: ["skimming", "scanning", "guessing", "predicting"], answer: 1, explanation: "'Scanning' = búsqueda de información específica." },
+      { type: "mc", q: "Un ensayo B2 suele tener esta estructura:", options: ["título, cuerpo", "introducción, desarrollo, conclusión", "solo opinión", "preguntas y respuestas"], answer: 1, explanation: "Estructura clásica: introducción, desarrollo y conclusión." },
+      { type: "mc", q: "En un debate, para dar tu opinión usas:", options: ["In my opinion...", "Once upon a time...", "Long time no see...", "By the way..."], answer: 0, explanation: "'In my opinion' es la fórmula estándar para dar opinión." },
+      { type: "fill", q: "Antes de un listening, es útil ____ el contexto. (predecir)", answer: ["predict", "predicting"], explanation: "'Predict' = predecir el contexto ayuda a comprender mejor." },
+      { type: "mc", q: "En un email formal, ¿cómo empiezas?", options: ["Hey!", "Dear Mr. Smith,", "Hi buddy,", "Yo!"], answer: 1, explanation: "'Dear Mr./Ms. [apellido]' es el saludo formal estándar." },
+      { type: "mc", q: "Una estrategia útil para Speaking es:", options: ["memorizar todo", "parafrasear si olvidas una palabra", "hablar muy rápido", "evitar pausas"], answer: 1, explanation: "Parafrasear mantiene la fluidez cuando no recuerdas una palabra." },
+      { type: "fill", q: "Al escribir, usa ____ como 'however', 'therefore' para cohesionar. (conectores)", answer: ["connectors", "linkers"], explanation: "Los conectores dan cohesión al texto escrito." }
+    ]
+  }
+};
+
+
+/* =====================================================
+   SISTEMA DE MODALES
+   ===================================================== */
+let currentSection = null;
+let userAnswers = {};
+
+
+function openModal(sectionId) {
+  const data = EXERCISES_DB[sectionId];
+  if (!data) return;
+
+
+  currentSection = sectionId;
+  userAnswers = {};
+
+
+  const modal = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  const body = document.getElementById('modalBody');
+
+
+  title.textContent = data.title;
+
+
+  // Construir HTML de ejercicios
+  let html = `<div class="modal-intro">${data.intro}</div>`;
+
+
+  html += `
+    <div class="score-bar">
+      <div class="score-info">
+        <span class="score-badge" id="scoreBadge">0 / ${data.exercises.length}</span>
+        <div class="progress-mini"><div class="progress-mini-fill" id="progressFill"></div></div>
+      </div>
+      <button class="reset-btn" onclick="resetExercises()">🔄 Reiniciar</button>
+    </div>
+  `;
+
+
+  data.exercises.forEach((ex, i) => {
+    html += `<div class="exercise" id="ex-${i}">`;
+    html += `<div class="q-text"><span class="q-num">${i + 1}</span>${ex.q}</div>`;
+
+
+    if (ex.type === 'mc') {
+      html += `<div class="options">`;
+      ex.options.forEach((opt, j) => {
+        const letter = String.fromCharCode(65 + j);
+        html += `
+          <label class="option" id="opt-${i}-${j}">
+            <input type="radio" name="q${i}" value="${j}" onchange="checkAnswer(${i}, ${j})">
+            <span class="letter">${letter})</span>
+            <span>${opt}</span>
+          </label>
+        `;
+      });
+      html += `</div>`;
+    } else {
+      html += `<input type="text" class="fill-input" id="fill-${i}" placeholder="Escribe tu respuesta..." onkeydown="if(event.key==='Enter') checkFill(${i})" onblur="checkFill(${i})">`;
+    }
+
+
+    html += `<div class="feedback" id="fb-${i}"></div>`;
+    html += `</div>`;
+  });
+
+
+  html += `
+    <div class="final-result" id="finalResult">
+      <div class="emoji-big" id="finalEmoji">🎉</div>
+      <div class="big-score" id="finalScore">0 / 0</div>
+      <div class="msg" id="finalMsg"></div>
+    </div>
+
+
+    <div class="modal-actions">
+      <button class="action-btn secondary" onclick="closeModal()">Cerrar</button>
+      <button class="action-btn primary" onclick="showFinalResult()">Ver resultado final</button>
+    </div>
+  `;
+
+
+  body.innerHTML = html;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+
+  updateScore();
+}
+
+
+function closeModal() {
+  const modal = document.getElementById('modalOverlay');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  currentSection = null;
+  userAnswers = {};
+}
+
+
+/* =====================================================
+   CORRECCIÓN
+   ===================================================== */
+function checkAnswer(qIndex, optIndex) {
+  const data = EXERCISES_DB[currentSection];
+  const ex = data.exercises[qIndex];
+  const correct = ex.answer;
+
+
+  userAnswers[qIndex] = { answered: true, correct: optIndex === correct };
+
+
+  const exerciseEl = document.getElementById(`ex-${qIndex}`);
+  const feedbackEl = document.getElementById(`fb-${qIndex}`);
+
+
+  // Limpiar estados
+  ex.options.forEach((_, j) => {
+    const optEl = document.getElementById(`opt-${qIndex}-${j}`);
+    optEl.classList.remove('correct', 'incorrect', 'selected');
+  });
+
+
+  // Marcar
+  if (optIndex === correct) {
+    document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('correct');
+    exerciseEl.classList.add('correct');
+    exerciseEl.classList.remove('incorrect');
+    feedbackEl.className = 'feedback correct show';
+    feedbackEl.innerHTML = `<strong>✅ ¡Correcto!</strong>${ex.explanation}`;
+  } else {
+    document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('incorrect');
+    document.getElementById(`opt-${qIndex}-${correct}`).classList.add('correct');
+    exerciseEl.classList.add('incorrect');
+    exerciseEl.classList.remove('correct');
+    feedbackEl.className = 'feedback incorrect show';
+    feedbackEl.innerHTML = `<strong>❌ Incorrecto</strong>La respuesta correcta es: <strong>${ex.options[correct]}</strong>.<br>${ex.explanation}`;
+  }
+
+
+  updateScore();
+}
+
+
+function checkFill(qIndex) {
+  const input = document.getElementById(`fill-${qIndex}`);
+  if (!input) return;
+
+
+  const value = input.value.trim().toLowerCase();
+  if (value === '') return;
+
+
+  const data = EXERCISES_DB[currentSection];
+  const ex = data.exercises[qIndex];
+  const accepted = Array.isArray(ex.answer) ? ex.answer : [ex.answer];
+  const isCorrect = accepted.some(ans => ans.toLowerCase() === value);
+
+
+  userAnswers[qIndex] = { answered: true, correct: isCorrect };
+
+
+  const exerciseEl = document.getElementById(`ex-${qIndex}`);
+  const feedbackEl = document.getElementById(`fb-${qIndex}`);
+
+
+  input.classList.remove('correct', 'incorrect');
+
+
+  if (isCorrect) {
+    input.classList.add('correct');
+    exerciseEl.classList.add('correct');
+    exerciseEl.classList.remove('incorrect');
+    feedbackEl.className = 'feedback correct show';
+    feedbackEl.innerHTML = `<strong>✅ ¡Correcto!</strong>${ex.explanation}`;
+  } else {
+    input.classList.add('incorrect');
+    exerciseEl.classList.add('incorrect');
+    exerciseEl.classList.remove('correct');
+    feedbackEl.className = 'feedback incorrect show';
+    feedbackEl.innerHTML = `<strong>❌ Incorrecto</strong>Respuesta esperada: <strong>${accepted[0]}</strong>.<br>${ex.explanation}`;
+  }
+
+
+  updateScore();
+}
+
+
+function updateScore() {
+  const data = EXERCISES_DB[currentSection];
+  const total = data.exercises.length;
+  const answered = Object.keys(userAnswers).length;
+  const correct = Object.values(userAnswers).filter(a => a.correct).length;
+
+
+  const badge = document.getElementById('scoreBadge');
+  const fill = document.getElementById('progressFill');
+
+
+  if (badge) {
+    badge.textContent = `${correct} / ${total}`;
+    badge.classList.remove('pass', 'fail');
+    if (answered === total) {
+      const pct = (correct / total) * 100;
+      badge.classList.add(pct >= 70 ? 'pass' : 'fail');
+    }
+  }
+
+
+  if (fill) {
+    fill.style.width = (answered / total) * 100 + '%';
+  }
+}
+
+
+function resetExercises() {
+  openModal(currentSection);
+}
+
+
+function showFinalResult() {
+  const data = EXERCISES_DB[currentSection];
+  const total = data.exercises.length;
+  const correct = Object.values(userAnswers).filter(a => a.correct).length;
+  const pct = Math.round((correct / total) * 100);
+
+
+  const resultEl = document.getElementById('finalResult');
+  const scoreEl = document.getElementById('finalScore');
+  const msgEl = document.getElementById('finalMsg');
+  const emojiEl = document.getElementById('finalEmoji');
+
+
+  scoreEl.textContent = `${correct} / ${total} (${pct}%)`;
+
+
+  if (pct >= 90) {
+    emojiEl.textContent = '🏆';
+    msgEl.textContent = '¡Excelente! Dominas esta sección.';
+  } else if (pct >= 70) {
+    emojiEl.textContent = '🎉';
+    msgEl.textContent = '¡Muy bien! Estás en nivel B2. Repasa los errores.';
+  } else if (pct >= 50) {
+    emojiEl.textContent = '💪';
+    msgEl.textContent = 'Vas por buen camino. Repasa la teoría y vuelve a intentarlo.';
+  } else {
+    emojiEl.textContent = '📚';
+    msgEl.textContent = 'Necesitas repasar la sección. ¡Tú puedes!';
+  }
+
+
+  resultEl.classList.add('show');
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+
+/* =====================================================
+   ACORDEÓN, NAVEGACIÓN, PROGRESO
+   ===================================================== */
+function toggleSection(el) {
+  const section = el.closest('.section');
+  section.classList.toggle('collapsed');
+
+
+  // Recalcular altura si se expande
+  const body = section.querySelector('.section-body');
+  if (body && !section.classList.contains('collapsed')) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+
+document.querySelectorAll('.section-body').forEach(body => {
+  body.style.maxHeight = body.scrollHeight + 'px';
+});
+
+
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.section:not(.collapsed) .section-body').forEach(body => {
+    body.style.maxHeight = body.scrollHeight + 'px';
+  });
+});
+
+
+document.querySelectorAll('.nav-list a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.classList.remove('collapsed');
+      const body = target.querySelector('.section-body');
+      if (body) body.style.maxHeight = body.scrollHeight + 'px';
+      window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+    }
+  });
+});
+
+
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-list a');
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+
+sections.forEach(section => observer.observe(section));
+
+
+const progressBar = document.getElementById('progressBar');
+const backTop = document.getElementById('backTop');
+
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = progress + '%';
+  backTop.classList.toggle('visible', scrollTop > 400);
+});
+
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+// Cerrar modal con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+
+
+</body>
+</html>
